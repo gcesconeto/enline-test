@@ -1,0 +1,30 @@
+{
+  "name": "enline-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/server.js",
+  "scripts": {
+    "test": "jest --runInBand  --detectOpenHandles --forceExit",
+    "test-coverage": "jest --coverage",
+    "start": "node ./src/server.js",
+    "dev": "nodemon ./src/server.js",
+    "lint": "eslint --no-inline-config --ext .js,.jsx --no-error-on-unmatched-pattern -c .eslintrc.json ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.2"
+  },
+  "devDependencies": {
+    "axios": "^0.21.1",
+    "eslint": "^6.8.0",
+    "eslint-config-trybe-backend": "1.0.3",
+    "jest": "^26.5.2",
+    "nodemon": "^2.0.7"
+  }
+}
