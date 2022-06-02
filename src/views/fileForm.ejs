@@ -21,7 +21,11 @@
     <h3>Files:</h3>
     <ul id="files-ul">
         <% fileList.forEach(file => { %>
-            <li><%= file %></li>
+            <li>
+                <span><%= file.date %></span>
+                <span><%= file.size / 1000000 %> MB</span>
+                <a href="./<%= file.path %>"><%= file.originalname %></a>
+            </li>
         <% }) %>
     </ul>   
 </body>

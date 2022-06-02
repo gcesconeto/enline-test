@@ -1,24 +1,28 @@
 const express = require('express');
 const cors = require('cors');
+// const path = require('path');
 
 const upload = require('./middlewares/upload');
+const error = require('./middlewares/error');
+
+const formController = require('./controllers/fileForm');
+const uploadedController = require('./controllers/fileUploaded');
 
 const app = express();
 
 app.set('view engine', 'ejs');
 app.set('views', './src/views');
 
+app.use('/uploads', express.static('uploads'));
 app.use(express.json());
 app.use(cors({ origin: '*' }));
 
 app.get('/coffee', (_req, res) => res.status(418).send('coffee time'));
 
-app.get('/', require('./controllers/fileUpload'));
+app.get('/', formController);
 
-app.post('/upload', upload.single('file'), (req, res) => {
-  res.send('file uploaded');
-});
+app.post('/upload', upload.single('file'), uploadedController);
 
-// app.use(require('./middlewares/error'));
+app.use(error);
 
 module.exports = app;
