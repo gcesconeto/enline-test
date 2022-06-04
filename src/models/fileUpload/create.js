@@ -1,5 +1,5 @@
 const connection = require('../connection');
 
-module.exports = async (file) => (await connection())
+module.exports = async (files) => (await connection())
     .collection('files')
-    .insertOne(file);
+    .insertMany(files);

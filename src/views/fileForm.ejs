@@ -4,29 +4,42 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/public/styles.css">
   <title>Enline File-Upload</title>
 </head>
 <body>
     <header>
-        <h1>Enline File-Upload</h1>
+        <div>
+            <h1>Enline File-Upload</h1>
+        </div>
     </header>
     <form id="file-form"
         action="/upload"
         method="POST"
         enctype="multipart/form-data"
     >
-        <input type="file" name="file" />
-        <input type="submit" />
+        <input type="file" name="file" multiple/>
+        <input type="submit" value="Upload" />
     </form>
-    <h3>Files:</h3>
-    <ul id="files-ul">
-        <% fileList.forEach(file => { %>
-            <li>
-                <span><%= file.date %></span>
-                <span><%= file.size / 1000000 %> MB</span>
-                <a href="./<%= file.path %>"><%= file.originalname %></a>
-            </li>
-        <% }) %>
-    </ul>   
+    <% if (fileList.length > 0) { %>
+        <section class="table">
+            <h3>Files</h3>
+            <ul>
+                <li>
+                    <span>Upload date</span>
+                    <span>Name</span>
+                    <span>Size</span>
+                </li>
+                <% fileList.forEach(file => { %>
+                    <li>
+                        <span><%= file.date %></span>
+                        <span><%= file.originalname %></span>
+                        <span><%= file.displaySize %></span>
+                        <a href="./<%= file.path %>">Download</a>
+                    </li>
+                <% }) %>
+            </ul>   
+        </section>
+    <% } %>
 </body>
 </html>

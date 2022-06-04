@@ -5,13 +5,32 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Enline File-Upload</title>
+  <link rel="stylesheet" href="/public/styles.css">
 </head>
 <body>
     <header>
-        <h1>You just uploaded this file:</h1>
+      <div>
+        <a href="./">Back to menu</a>
+        <h1>Enline File-Upload</h1>
+      </div>
     </header>
-    <span><%= newFile.date %></span>
-    <span><%= newFile.size / 1000000 %> MB</span>
-    <a href="./<%= newFile.path %>"><%= newFile.originalname %></a>
+    <% if (fileList.length > 0) { %>
+      <section class="table">
+        <h3>Uploaded files</h3>
+        <ul id="files-ul">
+          <li>
+            <span>Name</span>
+            <span>Size</span>
+          </li>
+          <% fileList.forEach(file => { %>
+              <li>
+                  <span><%= file.originalname %></span>
+                  <span><%= file.displaySize %></span>
+                  <a href="./<%= file.path %>">Download</a>
+              </li>
+          <% }) %>
+        </ul>   
+      </section>
+    <% } %>
 </body>
 </html>
