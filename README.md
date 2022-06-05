@@ -4,7 +4,7 @@
 
 This project was developed as a coding challenge for a position at Enline Transmission.
 
-The proposal requested an application to upload and download files based on node.js and mongodb.
+The proposal requested an application to upload and download files based on node.js and mongodb. It is currently available at https://enline-test.herokuapp.com/.
 
 These are the main technologies used:
 * node.js
@@ -19,7 +19,7 @@ These are the main technologies used:
 ### Pre-requisites:
 * npm with Node.js v14.x +
 ### Setup:
-* Clone the repository https://github.com/gcesconeto/enline-test.
+* Clone the repository https://gitlab.com/gcesconeto/enline-test.
 * Open a terminal window inside the project folder and run `npm install`.
 * Create .env file with the following keys:
   * DB_NAME: mongoDB database name
