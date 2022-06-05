@@ -13,13 +13,19 @@
             <h1>Enline File-Upload</h1>
         </div>
     </header>
-    <form id="file-form"
-        action="/upload"
-        method="POST"
-        enctype="multipart/form-data"
+    <form 
+        action="/wipe"
+        method="GET"
     >
-        <input type="file" name="file" multiple/>
-        <input type="submit" value="Upload" />
+        <input type="submit" value="Wipe DB" />
+    </form>
+    <form 
+    action="/upload"
+    method="POST"
+    enctype="multipart/form-data"
+    >
+    <input type="file" name="file" multiple/>
+    <input type="submit" value="Upload" />
     </form>
     <% if (fileList.length > 0) { %>
         <section class="table">
